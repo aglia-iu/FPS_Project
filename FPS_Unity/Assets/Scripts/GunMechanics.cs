@@ -6,14 +6,15 @@ using UnityEngine;
 /// </summary>
 public class GunMechanics : MonoBehaviour
 {
-    public bool shotBullet; // Whether or not a bullet has been fired from the gun, and is set to false upon completion of the shot
+    public bool shotFromGun; // Whether or not a bullet has been fired from the gun, and is set to false upon completion of the shot
     [SerializeField] private GameObject _bulletPrefab; // The prefab to be instantiated
     private bool _attached; // Whether the gun is attached to a player or not. 
+    [SerializeField] float _forceVal;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        shotBullet = false;
+        shotFromGun = false;
         _attached = false;
     }
 
@@ -40,14 +41,18 @@ public class GunMechanics : MonoBehaviour
     /// </summary>
     public void ShootBullet()
     {
-        if (_attached && !shotBullet) {
-            Debug.Log("Shoot!");
-            shotBullet = true;
+        if (_attached && !shotFromGun) {
+            shotFromGun = true;
+
+            // Create a new bullet and face it in the correct direction.
             GameObject newBullet = Instantiate(_bulletPrefab);
-            newBullet.transform.position = this.transform.Find("BulletSpawn").position;
-            newBullet.transform.forward = this.transform.Find("BulletSpawn").forward;
-            newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 100.0f);
-            shotBullet = false;
+            //newBullet.transform.position = this.transform.Find("BulletSpawn").position;
+            //newBullet.transform.forward = this.transform.Find("BulletSpawn").forward;
+
+            // Apply force to the bullet to shoot it out of the object
+            //newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * _forceVal);
+            newBullet.GetComponent<Bullet>().Shoot(_forceVal, this.transform.Find("BulletSpawn").gameObject);
+            shotFromGun = false;
         }
         
     }
