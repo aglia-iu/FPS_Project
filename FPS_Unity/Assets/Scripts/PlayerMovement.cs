@@ -3,20 +3,21 @@ using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
 /// <summary>
-/// Controls the movement of the player along the x,z axes along the arena.This script will always be attached to componenets named/tagged as 'Player'.
+/// Controls the movement of the player along the x,z axes along the arena.This script will always be attached to componenets named/tagged as 
+/// 'Player'.
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
     private float _movementX; // The force to apply to the player along the x-axis.
     private float _movementZ; // The force to apply to the player along the z-axis.
-    private Transform _startTransform; // The starting positon of the character.
+    private Vector3 _startPosition; // The starting positon of the character.
 
     [SerializeField] private float _multiplier; // The value by which the character moves forward. 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _startTransform = this.gameObject.transform;
+        _startPosition = this.gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
         else {
-            this.transform.position = _startTransform.position;
+            this.transform.position = _startPosition;
             Debug.Log($"pos x: {pos.x}, pos z: {pos.z}");
         }
         

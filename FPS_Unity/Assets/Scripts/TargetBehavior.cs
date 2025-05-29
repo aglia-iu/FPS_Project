@@ -7,8 +7,8 @@ using UnityEngine;
 public class TargetBehavior : MonoBehaviour
 {
     [SerializeField] private ColorChanger _colorChanger;
-    [SerializeField] private GameObject playerPos;
-    private Transform _prevTransform;
+    [SerializeField] private GameObject playerPos;    
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,7 +45,6 @@ public class TargetBehavior : MonoBehaviour
     /// </summary>
     void MoveTarget()
     {
-        _prevTransform = this.transform;
         this.transform.position = new Vector3(Random.Range(4.0f, -5.0f), -0.7f, Random.Range(-1.0f, -14.0f));
         this.transform.LookAt(playerPos.transform.position);
     }

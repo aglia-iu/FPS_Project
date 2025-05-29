@@ -23,7 +23,7 @@ public class UICanvas : MonoBehaviour
     [SerializeField] private GameObject _colorPalettePanel;
     [SerializeField] private GameObject _timePanel;
     [SerializeField] private Calculations _calculations;
-    private bool _start;
+    public bool _start;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

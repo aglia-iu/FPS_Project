@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 /// <summary>
 /// This script is used to calculate the time and score which will be used to update the UI in the environment at each point. 
 /// </summary>
@@ -8,16 +7,21 @@ public class Calculations : MonoBehaviour
 {
     [SerializeField] private int _score;
     public float _totalTime = 60.0f;
+    private UICanvas _ui;
 
     void Start()
     {
+        _ui = GetComponent<UICanvas>();
         _score = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        TimeCounter();
+        if (_ui._start)
+        {
+            TimeCounter();
+        }
     }
     /// <summary>
     /// The goal of this counter is to keep track of the deltaTime and to update the UI Element representing the time on every FixedUpdate().
