@@ -7,42 +7,54 @@ using UnityEngine.Windows;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    private float movementX; // The force to apply to the player along the x-axis.
-    private float movementZ; // The force to apply to the player along the z-axis.
-    private Rigidbody rb; // The RigidBody of the player
+    private float _movementX; // The force to apply to the player along the x-axis.
+    private float _movementZ; // The force to apply to the player along the z-axis.
+    private Transform _startTransform; // The starting positon of the character.
 
-    [SerializeField] private float multiplier; // The value by which the character moves forward. 
+    [SerializeField] private float _multiplier; // The value by which the character moves forward. 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _startTransform = this.gameObject.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 pos = this.transform.localPosition;
         Vector3 value = PlayerForce();
-        if (rb)
+        _movementX = UnityEngine.Input.GetAxis("Vertical");
+        _movementZ = UnityEngine.Input.GetAxis("Horizontal") * -1.0f;
+        this.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        if (
+            (pos.x > -16.0f && pos.x < 21.0f)
+            &&
+            (pos.z > -32.0f && pos.z < -5.0f))
         {
-            this.gameObject.transform.Translate(movementX, 0.0f, movementZ);
+            this.gameObject.transform.Translate(_movementX * _multiplier, 0.0f, _movementZ * _multiplier);
+            
         }
-        else
-        {
-            Debug.Log("Unable to acquire the rigidbody value");
+        else {
+            this.transform.position = _startTransform.position;
+            Debug.Log($"pos x: {pos.x}, pos z: {pos.z}");
         }
+        
+        //this.GetComponent<Rigidbody>().AddForce(new Vector3(movementX, 0.0f, movementZ) * multiplier, ForceMode.Acceleration);
+        //this.GetComponent<Rigidbody>().AddForce(value, ForceMode.Acceleration);
+       
         PlayerRotate();
     }
 
     /// <summary>
     ///  The force to be applied to the player.
     /// </summary>
-    /// <returns></returns>
+    /// <returns> A new Vector3 Value representing the direction of movement of the object</returns>
     public Vector3 PlayerForce()
     {
-        movementX = UnityEngine.Input.GetAxis("Vertical") * multiplier;
-        movementZ = UnityEngine.Input.GetAxis("Horizontal") * multiplier * -1.0f;
-        return new Vector3(movementX, 0.0f, movementZ);
+        _movementX = UnityEngine.Input.GetAxis("Vertical") * _multiplier;
+        _movementZ = UnityEngine.Input.GetAxis("Horizontal") * _multiplier * -1.0f;
+        return new Vector3(_movementX, 0.0f, _movementZ);
     }
 
     /// <summary>
@@ -52,11 +64,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 mouseMovement = UnityEngine.Input.mousePosition; // Collect the position of the mouse to control the shield.
         this.transform.rotation = Quaternion.Euler(
-            0.0f,
+            0,
             // Linearly interpolates the position of the shield relative to the position of the mouse on the screen.
             LinearInterpolation(-180f, 180f, mouseMovement.x / Screen.width),
-            0.0f
+            0
         );
+        
     }
     /// <summary>
     /// This function linearly interpolates between two objects from a starting to an ending point based on a set amount of time (also known as val.)

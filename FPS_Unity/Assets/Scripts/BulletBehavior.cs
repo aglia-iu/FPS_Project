@@ -8,7 +8,7 @@ public class BulletBehavior : MonoBehaviour
 {
     public bool _shot;
     public bool _targetHit;
-    [SerializeField] private CalculationsTimeScore _score;
+    [SerializeField] private Calculations _score;
         
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,9 +34,12 @@ public class BulletBehavior : MonoBehaviour
         {
             if(this.GetComponent<MeshRenderer>().material.name == (other.GetComponent<MeshRenderer>().material.name))
             {
-                Debug.Log("bruh");
                 _score.IncrementScore();
             } 
+            else
+            {
+                _score.DecrementScore();
+            }
             _targetHit=true;
         }
     }

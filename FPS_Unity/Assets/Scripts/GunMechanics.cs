@@ -11,6 +11,7 @@ public class GunMechanics : MonoBehaviour
     private bool _attached; // Whether the gun is attached to a player or not. 
     [SerializeField] float _forceVal;
     [SerializeField] ColorChanger _colorChanger;
+    [SerializeField] UICanvas _uicanvas;
     private string _colorname;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -77,6 +78,7 @@ public class GunMechanics : MonoBehaviour
         this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z - 0.75f);
         this.transform.parent = player.transform;
         this.transform.forward = player.transform.forward * -1;
+        _uicanvas.ColorPaletteScreen();
         _attached = true;
     }
 

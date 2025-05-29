@@ -14,9 +14,13 @@ public class ColorChanger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _randomVal = Random.value;
-
-        ChangeColor();
+        
+        if (this.gameObject.CompareTag("Target"))
+        {
+            _randomVal = Random.value;
+            ChangeColor();
+        }
+        
     }
 
     // Update is called once per frame
