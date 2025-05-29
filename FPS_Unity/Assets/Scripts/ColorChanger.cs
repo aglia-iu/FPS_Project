@@ -45,4 +45,28 @@ public class ColorChanger : MonoBehaviour
             this.GetComponent<MeshRenderer>().material = _materialYellow;
         }
     }
+
+    /// <summary>
+    /// Change the color of the material attached to this object to yellow, based on the button clicked by the user. 
+    /// </summary>
+    public void ChangeToYellow(GameObject _obj)
+    {
+        _obj.GetComponent<MeshRenderer>().material = _materialYellow;
+    }
+
+    /// <summary>
+    /// Change the color of the material attached to this object to red, based on the button clicked by the user. 
+    /// </summary>
+    public void ChangeToRed(GameObject _obj)
+    {
+        _obj.GetComponent<MeshRenderer>().material = _materialRed;
+    }
+
+    /// <summary>
+    /// Change the color of the material attached to this object to blue, based on the button clicked by the user. 
+    /// </summary>
+    public void ChangeToBlue(GameObject _obj)
+    {
+        _obj.GetComponent<MeshRenderer>().material = _materialBlue;
+    }
 }

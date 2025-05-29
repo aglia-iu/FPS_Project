@@ -28,7 +28,6 @@ public class BulletBehavior : MonoBehaviour
         if(other.CompareTag("Wall"))
         {
             Destroy(this.gameObject);
-            //this.GetComponent<ColorChanger>().ChangeColor();
         }
         // Did the bullet collide with a target?
         if (other.tag == "Target")
@@ -39,7 +38,6 @@ public class BulletBehavior : MonoBehaviour
                 _score.IncrementScore();
             } 
             _targetHit=true;
-            this.GetComponent<ColorChanger>().ChangeColor();
         }
     }
 
@@ -57,4 +55,6 @@ public class BulletBehavior : MonoBehaviour
         this.GetComponent<Rigidbody>().AddForce(this.transform.forward * _forceVal);   
         _shot = true;
     }
+
+    
 }

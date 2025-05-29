@@ -10,6 +10,8 @@ public class GunMechanics : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab; // The prefab to be instantiated
     private bool _attached; // Whether the gun is attached to a player or not. 
     [SerializeField] float _forceVal;
+    [SerializeField] ColorChanger _colorChanger;
+    private string _colorname;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +48,21 @@ public class GunMechanics : MonoBehaviour
 
             // Create a new bullet and face it in the correct direction.
             GameObject newBullet = Instantiate(_bulletPrefab);
+            switch (_colorname)
+            {
+                case "Red":
+                    _colorChanger.ChangeToRed(newBullet);
+                    break;
+
+                case "Blue":
+                    _colorChanger.ChangeToBlue(newBullet);
+                    break;
+
+                case "Yellow":
+                    _colorChanger.ChangeToYellow(newBullet);
+                    break;
+            }
+
             newBullet.GetComponent<BulletBehavior>().Shoot(_forceVal, this.transform.Find("BulletSpawn").gameObject);
             shotFromGun = false;
         }
@@ -61,5 +78,14 @@ public class GunMechanics : MonoBehaviour
         this.transform.parent = player.transform;
         this.transform.forward = player.transform.forward * -1;
         _attached = true;
+    }
+
+    /// <summary>
+    /// The color to which the bullet prefab will be instantiated with. Used by buttons (on Canvas) to select objects. 
+    /// </summary>
+    /// <param name="colorName">The color of the object to which we want to change.</param>
+    public void ChangeColor(string colorName)
+    {
+        _colorname = colorName;
     }
 }
