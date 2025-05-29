@@ -6,29 +6,30 @@ using UnityEngine;
 /// </summary>
 public class CameraAngle : MonoBehaviour
 {
-    private Transform _startTransform;
-    private GameObject _startParent;
-    [SerializeField] private Transform _gunTransform;
+    private GameObject _startParent; // The parent of this gameObject at the beginning of the game (i.e. the player.)
+    [SerializeField] private Transform _gunTransform; // The transform of the gun component that will be the parent of the Camera when switching view.
     private bool _aiming = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       _startTransform = this.transform;
-       _startParent = this.transform.parent.gameObject;
+       _startParent = this.transform.parent.gameObject; // At the beginning of the program, get the parent
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Toggle between the aim
         if (Input.GetMouseButton(1))
         {
             _aiming = !_aiming;
         }
-
+        // If aiming at the target, switch camera view so that users can see through the telescope.
         if (_aiming)
         {
             SeeThroughTelescope();
         }
+        // Else, view from third-person perspective.
         else
         {
             ReturnToThirdPerson();

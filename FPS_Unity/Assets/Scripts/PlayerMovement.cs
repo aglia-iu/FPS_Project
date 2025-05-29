@@ -23,26 +23,28 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get the position of this transform over time. 
         Vector3 pos = this.transform.localPosition;
-        Vector3 value = PlayerForce();
+        // The axes along which the user can move. 
         _movementX = UnityEngine.Input.GetAxis("Vertical");
         _movementZ = UnityEngine.Input.GetAxis("Horizontal") * -1.0f;
+        // Setting the rigidbody velocity to zero to prevent drift. 
         this.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+
         if (
-            (pos.x > -16.0f && pos.x < 21.0f)
+            (pos.x > -16.0f && pos.x < 21.0f) 
             &&
             (pos.z > -32.0f && pos.z < -5.0f))
         {
+            // If character is within these bounds, the character can move freely. 
             this.gameObject.transform.Translate(_movementX * _multiplier, 0.0f, _movementZ * _multiplier);
             
         }
+        // Otherwise, the position of the character gets reset. 
         else {
             this.transform.position = _startPosition;
             Debug.Log($"pos x: {pos.x}, pos z: {pos.z}");
         }
-        
-        //this.GetComponent<Rigidbody>().AddForce(new Vector3(movementX, 0.0f, movementZ) * multiplier, ForceMode.Acceleration);
-        //this.GetComponent<Rigidbody>().AddForce(value, ForceMode.Acceleration);
        
         PlayerRotate();
     }

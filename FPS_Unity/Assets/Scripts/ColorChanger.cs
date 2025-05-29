@@ -10,33 +10,27 @@ public class ColorChanger : MonoBehaviour
     [SerializeField] private Material _materialBlue; // The blue material to be applied to the object.
     [SerializeField] private Material _materialYellow; // The yellow material to be applied to the object.
 
-    private float _randomVal;
+    private float _randomVal; // Random value between 0.0 & 1.0 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // If this game object is a target, we can switch it to a random value.    
         if (this.gameObject.CompareTag("Target"))
         {
             _randomVal = Random.value;
             ChangeColor();
         }
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
     /// <summary>
-    /// Changes the color of the object to which it is attached randomly, and a built in checker to check if an object being passed in has the same material color as 
-    /// the material attached to this object.
+    /// Changes the color of the object to which it is attached randomly, and a built in checker to check if an object being passed in has the same 
+    /// material color as the material attached to this object.
     /// </summary>
     public void ChangeColor()
     {
         _randomVal = Random.value;
 
+        // Based on the random value's range, we assign the target with the color red, yellow or blue.
         if (_randomVal < 0.33f)
         {
             this.GetComponent<MeshRenderer>().material = _materialRed;

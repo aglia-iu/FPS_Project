@@ -5,9 +5,9 @@ using UnityEngine;
 /// </summary>
 public class Calculations : MonoBehaviour
 {
-    [SerializeField] private int _score;
-    public float _totalTime = 60.0f;
-    private UICanvas _ui;
+    [SerializeField] private int _score; // The score of the player
+    public float _totalTime = 60.0f; // The total time the character has.
+    private UICanvas _ui; // The UI Canvas elements to display the score. 
 
     void Start()
     {

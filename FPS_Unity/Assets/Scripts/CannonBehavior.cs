@@ -1,8 +1,8 @@
 using UnityEngine;
 
 /// <summary>
-/// This script controls the movement of each cannon so that they face the player at each point in time, and ensuring that each player can move around in the 
-/// environment. 
+/// This script controls the movement of each cannon so that they face the player at each point in time, and ensuring that each player can move around
+/// in the environment. 
 /// </summary>
 public class CannonBehavior : MonoBehaviour
 {
@@ -19,6 +19,7 @@ public class CannonBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Point the cannon at the player to fire back balls that land on the walls. 
         this.transform.LookAt(playerPosition);
     }
 }

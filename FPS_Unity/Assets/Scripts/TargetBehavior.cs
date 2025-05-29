@@ -7,32 +7,22 @@ using UnityEngine;
 public class TargetBehavior : MonoBehaviour
 {
     [SerializeField] private ColorChanger _colorChanger;
-    [SerializeField] private GameObject playerPos;    
+    [SerializeField] private GameObject _playerPos;    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _colorChanger = this.GetComponent<ColorChanger>();
 
-        if ( _colorChanger != null)
-        {
-            Debug.Log("Acquired ColorChanger!");
-        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider other)
     {
         // Did the object hit the Target?
-        // If it is a bullet -
+        // If it is a bullet - change the color of the target, and move it to a rndom position.
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("Caught a bullet!");
             if (other.GetComponent<BulletBehavior>()._targetHit)
             {
                 _colorChanger.ChangeColor();
@@ -45,7 +35,8 @@ public class TargetBehavior : MonoBehaviour
     /// </summary>
     void MoveTarget()
     {
+        //move the target to a random position and have it face the player. 
         this.transform.position = new Vector3(Random.Range(4.0f, -5.0f), -0.7f, Random.Range(-1.0f, -14.0f));
-        this.transform.LookAt(playerPos.transform.position);
+        this.transform.LookAt(_playerPos.transform.position);
     }
 }

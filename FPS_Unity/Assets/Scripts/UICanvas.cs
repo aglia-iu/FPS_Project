@@ -3,25 +3,23 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
 
-
-
 /// <summary>
 /// This script is used to modify UI Canvas elements in the environment given certain . 
 /// </summary>
 public class UICanvas : MonoBehaviour
 {
-    //[SerializeField] private int _score;
-    //private float _totalTime = 60.0f;
-
+    // Text Elements
     [SerializeField] private TMP_Text _scoreUIElement;
     [SerializeField] private TMP_Text _timeUIElement;
 
+    // Panels
     [SerializeField] private GameObject _losePanel;
     [SerializeField] private GameObject _winPanel;
     [SerializeField] private GameObject _instructionsPanel;
-
     [SerializeField] private GameObject _colorPalettePanel;
     [SerializeField] private GameObject _timePanel;
+
+    // The Calculations objects
     [SerializeField] private Calculations _calculations;
     public bool _start;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,6 +32,7 @@ public class UICanvas : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Once the game starts, keep track of the score, and what is being displayed on the screen. 
         if (_start)
         {
             TimeDisplay();
