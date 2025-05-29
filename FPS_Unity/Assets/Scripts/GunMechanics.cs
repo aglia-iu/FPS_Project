@@ -19,7 +19,7 @@ public class GunMechanics : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -37,7 +37,7 @@ public class GunMechanics : MonoBehaviour
 
 
     /// <summary>
-    /// Instantiates a bullet and shoots it from the  object
+    /// Instantiates a bullet and shoots it from the object
     /// </summary>
     public void ShootBullet()
     {
@@ -46,12 +46,7 @@ public class GunMechanics : MonoBehaviour
 
             // Create a new bullet and face it in the correct direction.
             GameObject newBullet = Instantiate(_bulletPrefab);
-            //newBullet.transform.position = this.transform.Find("BulletSpawn").position;
-            //newBullet.transform.forward = this.transform.Find("BulletSpawn").forward;
-
-            // Apply force to the bullet to shoot it out of the object
-            //newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * _forceVal);
-            newBullet.GetComponent<Bullet>().Shoot(_forceVal, this.transform.Find("BulletSpawn").gameObject);
+            newBullet.GetComponent<BulletBehavior>().Shoot(_forceVal, this.transform.Find("BulletSpawn").gameObject);
             shotFromGun = false;
         }
         

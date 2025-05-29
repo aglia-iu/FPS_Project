@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1487943599042418078}
   - component: {fileID: 8027575689887269415}
   - component: {fileID: 4006295186881520484}
+  - component: {fileID: 7340332067236075387}
   m_Layer: 0
   m_Name: BulletPrefab
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +97,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6824079672387475451}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d8c5f4fd35d7b254ea963078f37c8112, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -149,3 +150,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2362ba4a6e419884b9e55af7d548b04f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7340332067236075387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6824079672387475451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041d9a05b649ec647872d3194f3956d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialRed: {fileID: 2100000, guid: 843a40a90d9e2fd4c94597685d777d28, type: 2}
+  _materialBlue: {fileID: 2100000, guid: 3863f320bcb6d354b9fbd4aa56eebc18, type: 2}
+  _materialYellow: {fileID: 2100000, guid: f86e1759bc1794d4181205766910eb5a, type: 2}
