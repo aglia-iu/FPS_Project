@@ -24,7 +24,7 @@ To begin with, I made a UML diagram for my personal reference, so that I could k
   - The character will be able to read a set of instructions at the beginning of the game, with instruction regarding controls and available functionality. 
   - The character will be able to see their score at the top of the screen, and the amount of time being taken so that they know how much time they have left.  
 - **Optional: creative camera perspective or projection-mapped feel**
-  - Switch the position of the camera by moving it closer to the character when they are aiming and shooting, to make it easier to view the target, as opposed to the third-=party perspective.
+  - Switch the position of the camera by moving it closer to the character when they are aiming and shooting, to make it easier to view the target, as opposed to the third-=party perspective (I made this for the first time).
  
 ##  What I would have added if I had time
 
