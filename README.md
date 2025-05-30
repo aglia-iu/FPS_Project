@@ -1,5 +1,5 @@
 # FPS_Project
-Taken ~ 6 hours to make, over a period of 2.5 days. All assets in scene were either from the built-in Unity system or made by me. 
+Taken ~ 8 hours to make, over a period of 2.5 days. All assets in scene were either from the built-in Unity system or made by me. 
 
 ## Instructions
 Can you shoot the colored target with the matching colored bullets over 15 times in one minute?
