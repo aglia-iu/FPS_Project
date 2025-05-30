@@ -19,6 +19,7 @@ To begin with, I made a UML diagram for my personal reference, so that I could k
   - A character that can move around in the environments using both WASD and arrow keys to make it easier to iterate through the game.
 - **At least two interactions (e.g., door switch, object pickup, trigger event)**
   - The character will be able to pick up a gun by colliding with it, change the colors of the bullets and shoot the target.
+  - when you click on the environment to select the color of your bullets, the game fires off a bullet, since we are also using the left-click functionality to select the button in question. So, I made it so that by pressing a key (R for Red, Y for Yellow and B for Blue), you would select the color in question, without firing off that extra bullet.
 - **A basic UI element (e.g., feedback, message, score)**
   - The character will be able to read a set of instructions at the beginning of the game, with instruction regarding controls and available functionality. 
   - The character will be able to see their score at the top of the screen, and the amount of time being taken so that they know how much time they have left.  
@@ -27,7 +28,7 @@ To begin with, I made a UML diagram for my personal reference, so that I could k
  
 ##  What I would have added if I had time
 
-If I had more time, I would have started by fixing the last bug in my environment - when you click on the environment to select the color of your bullets, the game fires off a bullet, since we are also using the left-click functionality to select the button in question. So, would have made it so that by pressing a key (R for Red, Y for Yellow and B for Blue), you would select the color in question, without firing off that extra bullet. I also would have added functionality to have cannons at the top of the walls. Everytime a bullet missed the target and landed on the wall, the cannons would aim at the character and fire back at them, adding a level of challenge within the short amount of time. I also would have 3D Modeled my own assets - for the sake of time, I greyboxed the scene, with the intention of adding 3D Models later. In addition, I would have made a physical switch that the character could use, kind of like a lever, to change the color in the physical game, as opposed to using the UI. 
+If I had more time, I would have added functionality to have cannons at the top of the walls. Everytime a bullet missed the target and landed on the wall, the cannons would aim at the character and fire back at them, adding a level of challenge within the short amount of time. I also would have 3D Modeled my own assets - for the sake of time, I greyboxed the scene, with the intention of adding 3D Models later. In addition, I would have made a physical switch that the character could use, kind of like a lever, to change the color in the physical game, as opposed to using the UI. 
 
 I would have created an inventory system to store ammo, and a system to collect ammo in between dodging the cannons, and firing at the target. I would have added a restart button to easily restart the game. I would have added a scoreboard for players to view and beat their high score. It could have been interesting to add a coin-collection system in the environment. 
 
