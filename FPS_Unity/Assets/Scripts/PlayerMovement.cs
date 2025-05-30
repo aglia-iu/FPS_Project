@@ -29,12 +29,12 @@ public class PlayerMovement : MonoBehaviour
         _movementX = UnityEngine.Input.GetAxis("Vertical");
         _movementZ = UnityEngine.Input.GetAxis("Horizontal") * -1.0f;
         // Setting the rigidbody velocity to zero to prevent drift. 
-        this.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        this.GetComponent<Rigidbody>().linearVelocity = new Vector3(0f, this.GetComponent<Rigidbody>().linearVelocity.y, 0f);
 
         if (
-            (pos.x > -16.0f && pos.x < 21.0f) 
+            (pos.x > -18.0f && pos.x < 18.0f) 
             &&
-            (pos.z > -32.0f && pos.z < -5.0f))
+            (pos.z > -38.5f && pos.z < -1.41f))
         {
             // If character is within these bounds, the character can move freely. 
             this.gameObject.transform.Translate(_movementX * _multiplier, 0.0f, _movementZ * _multiplier);

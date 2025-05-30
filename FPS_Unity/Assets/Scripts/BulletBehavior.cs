@@ -15,7 +15,6 @@ public class BulletBehavior : MonoBehaviour
     void Start()
     {
         _shot = false;
-        _targetHit = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -30,13 +29,13 @@ public class BulletBehavior : MonoBehaviour
             if(this.GetComponent<MeshRenderer>().material.name == (other.GetComponent<MeshRenderer>().material.name))
             {
                 _score.IncrementScore();
-            } 
+                other.GetComponent<ColorChanger>().ChangeColor();
+                other.GetComponent<TargetBehavior>().MoveTarget();
+            }
             else
             {
                 _score.DecrementScore();
             }
-            // Now, the bullet has successfully hit the target.
-            _targetHit=true;
         }
     }
 

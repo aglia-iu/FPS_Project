@@ -30,6 +30,19 @@ public class GunMechanics : MonoBehaviour
         {
             ShootBullet();
         }
+
+        if (Input.GetKeyDown("1"))
+        {
+            _colorname = "Blue";
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            _colorname = "Yellow";
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            _colorname = "Red";
+        }
     }
 
     private void OnTriggerEnter(Collider other)

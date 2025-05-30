@@ -16,24 +16,10 @@ public class TargetBehavior : MonoBehaviour
 
     }
 
-
-    void OnTriggerEnter(Collider other)
-    {
-        // Did the object hit the Target?
-        // If it is a bullet - change the color of the target, and move it to a rndom position.
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            if (other.GetComponent<BulletBehavior>()._targetHit)
-            {
-                _colorChanger.ChangeColor();
-            }
-            MoveTarget();
-        }
-    }
     /// <summary>
     /// This function moves the target to different position around the environment. 
     /// </summary>
-    void MoveTarget()
+    public void MoveTarget()
     {
         //move the target to a random position and have it face the player. 
         this.transform.position = new Vector3(Random.Range(4.0f, -5.0f), -0.7f, Random.Range(-1.0f, -14.0f));

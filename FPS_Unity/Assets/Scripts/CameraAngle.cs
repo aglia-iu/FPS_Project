@@ -51,7 +51,7 @@ public class CameraAngle : MonoBehaviour
     {
         this.transform.SetParent(_startParent.transform);
         this.transform.localPosition = new Vector3(-4.0f, 3, 0);
-        this.transform.localRotation = Quaternion.Euler(35f, 90f, 0f);
+        this.transform.localRotation = Quaternion.Euler(15f, 90f, 0f);
 
     }
 }
